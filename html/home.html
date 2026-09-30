@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bean Boutique</title>
+     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="promotion">
+      <div id="promotion_card">
+        <button id="btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+         <img src="../image/logo.png" alt="bean boutique logo" id="promo_logo">
+
+        <h2>Welcome to Bean Boutique!</h2>
+
+        <p>
+          Sign up for our newsletter and receive
+          <strong>10% OFF</strong> your first purchase.
+        </p>
+
+        <form id="promotion_form">
+          <label for="email">Email Address</label>
+
+          <input type="email" id="email" required />
+
+          <button type="submit" id="discount_btn">Get My Discount</button>
+        </form>
+      </div>
+    </div>
+    <header>
+      <div class="head_container">
+        <div class="logo">
+          <a href="./home.html">
+          <img src="../image/logo.png" alt="bean boutique logo">
+            <span>Bean Boutique</span>
+          </a>
+        </div>
+        <nav class="nav_list">
+          <ul>
+            <li><a href="./coffee.html">COFFEE </a></li>
+            <li><a href="./equipment.html">EQUIPMENTS </a></li>
+            <li><a href="./event.html">EVENTS </a></li>
+            <li><a href="./offer.html">OFFERS </a></li>
+            <li><a href="./about_us.html">ABOUT </a></li>
+          </ul>
+        </nav>
+        <div class="btn_container">
+          <i class="fa-regular fa-star star"></i>
+          <a href="./cart.html"
+            ><i class="fa-solid fa-cart-shopping cart"></i
+          ></a>
+          <a href="./login.html">
+            <i class="fa-regular fa-circle-user user"></i
+          ></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec_1">
+        <div class="banner">
+          <img
+            src="../image/barista.jpg"
+            alt="barista making coffee"
+          />
+          <span id="text1">Brewed for every moment</span>
+          <span id="text2"
+            >From our café to your home <br />
+            -discover coffee blends, brewing equipment, and more at Bean
+            Boutique</span
+          >
+        </div>
+      </section>
+
+      <section class="sec_2">
+        <h1>features</h1>
+        <div class="feature_box">
+          <div class="feature_card">
+            <div class="product_card">
+              <img
+                src="../image/coffee.jpg"
+                alt="coffee beans"
+                class="normal_img"
+              />
+              <img
+                src="../image/coffebeans.png"
+                alt="coffee beans"
+                class="hover_img"
+              />
+
+              <span>COFFEE BLENDS</span>
+            </div>
+            <p>Explore our range of smooth and flavourful  blends</p>
+            <a href="./coffee.html">EXPLORE</a>
+          </div>
+          <div class="feature_card">
+            <div class="product_card">
+              <img
+                src="../image/equipment.jpg"
+                alt="french press"
+                class="normal_img"
+              />
+              <img
+                src="../image/equipment2.png"
+                alt="espresso machine "
+                class="hover_img"
+              />
+              <span>EQUIPMENTS</span>
+            </div>
+            <p>Find the perfect equipment for your coffee</p>
+            <a href="./equipment.html">EXPLORE</a>
+          </div>
+          <div class="feature_card">
+            <div class="product_card">
+              <img
+                src="../image/Coffee_Party.jpg"
+                alt="coffee party"
+                class="normal_img"
+              />
+              <img
+                src="../image/event2.png"
+                alt="coffee party"
+                class="hover_img"
+              />
+
+              <span>EVENTS</span>
+            </div>
+            <p>Join our coffee events and great company</p>
+            <a href="./event.html">EXPLORE</a>
+          </div>
+        </div>
+      </section>
+      <section class="sec_3">
+        <div class="best_text">
+          <h1>Best Sellers</h1>
+
+          <p class="subtitle">
+            Discover some of our most-loved coffee blends and equipment,<br> chosen
+            by our customers.
+          </p>
+        </div>
+
+      <div class="slider">
+
+    <button type="button" class="slide_btn prev" aria-label="Previous products">
+    &lt;
+</button>
+
+    <div class="slide_box">
+
+        <div class="coffee_card">
+            <div class="coffee_pic">
+                <img src="../image/hazelnut.png" alt="Hazelnut coffee" />
+            </div>
+            <div class="add_to_cart">
+                <span class="product_name">HAZELNUT HARMONY</span>
+                <span class="price">$25.00</span>
+                <button class="cart_btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="coffee_card">
+            <div class="coffee_pic">
+                <img src="../image/berry.png" alt="Berry coffee" />
+            </div>
+            <div class="add_to_cart">
+                <span class="product_name">BERRY BLOOM</span>
+                <span class="price">$20.00</span>
+                <button class="cart_btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="coffee_card">
+            <div class="coffee_pic">
+                <img src="../image/kenya.png" alt="Kenya AA coffee" />
+            </div>
+            <div class="add_to_cart">
+                <span class="product_name">KENYA AA</span>
+                <span class="price">$23.00</span>
+                <button class="cart_btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="coffee_card">
+            <div class="coffee_pic">
+                <img src="../image/french_press.png" alt="French press equipment" />
+            </div>
+            <div class="add_to_cart">
+                <span class="product_name">FRENCH PRESS</span>
+                <span class="price">$90.97</span>
+                <button class="cart_btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="coffee_card">
+            <div class="coffee_pic">
+                <img src="../image/pour_over.png" alt="Pour over equipment" />
+            </div>
+            <div class="add_to_cart">
+                <span class="product_name">POUR OVER</span>
+                <span class="price">$35.00</span>
+                <button class="cart_btn">ADD TO CART</button>
+            </div>
+        </div>
+
+    </div>
+
+   <button type="button" class="slide_btn next" aria-label="Next products">
+    &gt;
+</button>
+
+</div>
+      </section>
+      <section class="sec_4">
+        <div class="discover">
+          <div class="description">
+            <p>
+              At Bean Boutique, we believe coffee brings people together.
+              Discover our story, learn more about what we offer, and find out
+              where you can visit us.
+            </p>
+            <a href="./about_us.html">DISCOVER MORE</a>
+          </div>
+          <div class="photo_box">
+            <img
+              src="../image/enjoying_coffee.jpg"
+              alt="people drinking coffee"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer_container">
+        <div class="brand">
+          <h2>
+         <img src="../image/logo.png" alt="bean boutique logo">
+            Bean Boutique
+          </h2>
+
+          <p>A Little Warmth in Every Cup</p>
+        </div>
+
+        <div class="footer_info">
+          <span class="footer_head">Terms & Conditions</span>
+          <span class="footer_content">Returns & Refunds</span>
+          <span class="footer_content">Privacy & Policy</span>
+          <span class="footer_content">Cookies Policy</span>
+        </div>
+        <div class="footer_info">
+          <span class="footer_head">Store</span>
+          <span class="footer_content">Contact Us</span>
+          <span class="footer_content">Shop</span>
+          <span class="footer_content">FAQ</span>
+        </div>
+        <div class="footer_info">
+          <span class="footer_head">Follow Us</span>
+
+          <div class="social_box">
+            <i class="fa-brands fa-instagram social"></i>
+            <span>@beanboutique1</span>
+          </div>
+
+          <div class="social_box">
+            <i class="fa-brands fa-facebook social"></i>
+            <span>@BeanBoutique CoffeeShop</span>
+          </div>
+
+          <div class="social_box">
+            <i class="fa-brands fa-tiktok social"></i>
+            <span>@bean-boutique</span>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        Copy Right &copy; 2026 Bean Boutique,All Rights Reserved.
+      </div>
+    </footer>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
