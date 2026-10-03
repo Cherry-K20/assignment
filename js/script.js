@@ -316,3 +316,4 @@ if (slideBox && nextBtn && prevBtn) {
         slideBox.scrollLeft -= 370;
     });
 }
+

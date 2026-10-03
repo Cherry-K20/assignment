@@ -74,9 +74,10 @@ header {
 
 .btn_container{
     display: flex;
-    gap: 15px;
+    gap: 18px;
     align-items: center;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .nav_list li a:hover {
@@ -1711,6 +1712,11 @@ width: 80px;height: 50px;object-fit: contain;
 .checkout_btn:hover {
     background-color: rgb(180, 116, 128);
 }
+
+
+.shop_btn:hover {
+    background-color:  rgb(180, 116, 128);
+}
 @keyframes move_text {
     from {
         transform: translateX(0);
@@ -1828,6 +1834,7 @@ width: 80px;height: 50px;object-fit: contain;
     .cart_btn{
         width: 150px;
     }
+    
 
     .event img{
         width: 300px;
@@ -2005,6 +2012,8 @@ width: 80px;height: 50px;object-fit: contain;
     .cart_product{
         width: 100%;
     }
+   
+  
 
     .footer_container{
         flex-direction: column;
@@ -2014,4 +2023,6 @@ width: 80px;height: 50px;object-fit: contain;
     .footer_info{
         margin-left: 0;
     }
+  
+
 }
