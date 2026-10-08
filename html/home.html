@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bean Boutique</title>
-     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon" />
+
+    <title>Bean Boutique | Home</title>
+
+    <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="../css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
@@ -13,13 +17,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <div id="promotion">
       <div id="promotion_card">
@@ -27,7 +38,7 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
 
-         <img src="../image/logo.png" alt="bean boutique logo" id="promo_logo">
+        <img src="../image/logo.png" alt="Bean Boutique logo" id="promo_logo" />
 
         <h2>Welcome to Bean Boutique!</h2>
 
@@ -45,213 +56,458 @@
         </form>
       </div>
     </div>
+
     <header>
       <div class="head_container">
         <div class="logo">
           <a href="./home.html">
-          <img src="../image/logo.png" alt="bean boutique logo">
+            <img src="../image/logo.png" alt="Bean Boutique logo" />
+
             <span>Bean Boutique</span>
           </a>
         </div>
+
         <nav class="nav_list">
           <ul>
-            <li><a href="./coffee.html">COFFEE </a></li>
-            <li><a href="./equipment.html">EQUIPMENTS </a></li>
-            <li><a href="./event.html">EVENTS </a></li>
-            <li><a href="./offer.html">OFFERS </a></li>
-            <li><a href="./about_us.html">ABOUT </a></li>
+            <li>
+              <a href="./coffee.html">COFFEE</a>
+            </li>
+
+            <li>
+              <a href="./equipment.html">EQUIPMENT</a>
+            </li>
+
+            <li>
+              <a href="./event.html">EVENTS</a>
+            </li>
+
+            <li>
+              <a href="./offer.html">OFFERS</a>
+            </li>
+
+            <li>
+              <a href="./about_us.html">ABOUT</a>
+            </li>
           </ul>
         </nav>
+
         <div class="btn_container">
-         
-          <a href="./cart.html"
-            ><i class="fa-solid fa-cart-shopping cart"></i
-          ></a>
-          <a href="./login.html">
-            <i class="fa-regular fa-circle-user user"></i
-          ></a>
+          <a href="./wishlist.html">
+            <i class="fa-solid fa-star star"></i>
+          </a>
+
+          <a href="./cart.html">
+            <i class="fa-solid fa-cart-shopping cart"></i>
+          </a>
+
+          <button class="menu_btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
       </div>
     </header>
+
     <main>
       <section class="sec_1">
         <div class="banner">
-          <img
-            src="../image/barista.jpg"
-            alt="barista making coffee"
-          />
-          <span id="text1">Brewed for every moment</span>
-          <span id="text2"
-            >From our café to your home <br />
-            -discover coffee blends, brewing equipment, and more at Bean
-            Boutique</span
-          >
+          <img src="../image/barista.jpg" alt="Barista making coffee" />
+
+          <div class="banner_text">
+            <span class="banner_label"> SPECIALTY COFFEE · EST. 2026 </span>
+
+            <h1>
+              Brew something
+              <br />
+              <em>beautiful.</em>
+            </h1>
+
+            <p>
+              Carefully selected coffee blends, brewing equipment, and little
+              moments made for coffee lovers.
+            </p>
+
+            <a href="./coffee.html">
+              EXPLORE COFFEE
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="banner_side_text">
+            GOOD COFFEE
+            <br />
+            GOOD MOMENTS
+          </div>
         </div>
       </section>
 
+      <section class="home_intro">
+        <div class="intro_label">
+          <span></span>
+          WELCOME TO BEAN BOUTIQUE
+          <span></span>
+        </div>
+
+        <h2>
+          Coffee made for
+          <br />
+          <em>every moment.</em>
+        </h2>
+
+        <p>
+          From your first morning cup to slow afternoons with friends, Bean
+          Boutique brings together carefully chosen coffee and everything you
+          need to brew it your way.
+        </p>
+      </section>
+
       <section class="sec_2">
-        <h1>features</h1>
+        <div class="section_heading dark_heading">
+          <div>
+            <span class="small_label">DISCOVER</span>
+
+            <h2>
+              Everything
+              <br />
+              <em>coffee.</em>
+            </h2>
+          </div>
+
+          <p>
+            Explore our coffee, equipment, and events designed for curious
+            coffee lovers.
+          </p>
+        </div>
+
         <div class="feature_box">
-          <div class="feature_card">
+          <div class="feature_card feature_main">
             <div class="product_card">
               <img
                 src="../image/coffee.jpg"
-                alt="coffee beans"
+                alt="Coffee beans"
                 class="normal_img"
               />
+
               <img
                 src="../image/coffebeans.png"
-                alt="coffee beans"
+                alt="Coffee beans close up"
                 class="hover_img"
               />
 
-              <span>COFFEE BLENDS</span>
+              <div class="feature_number">01</div>
+
+              <div class="feature_title">
+                <span>COFFEE</span>
+                <h3>Blends for every mood.</h3>
+              </div>
             </div>
-            <p>Explore our range of smooth and flavourful  blends</p>
-            <a href="./coffee.html">EXPLORE</a>
+
+            <div class="feature_content">
+              <p>
+                From smooth and sweet to bold and rich, discover blends made for
+                every coffee moment.
+              </p>
+
+              <a href="./coffee.html">
+                EXPLORE BLENDS
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
+
           <div class="feature_card">
             <div class="product_card">
               <img
                 src="../image/equipment.jpg"
-                alt="french press"
+                alt="Coffee equipment"
                 class="normal_img"
               />
+
               <img
                 src="../image/equipment2.png"
-                alt="espresso machine "
+                alt="Espresso machine"
                 class="hover_img"
               />
-              <span>EQUIPMENTS</span>
+
+              <div class="feature_overlay"></div>
+
+              <div class="feature_number">02</div>
+
+              <div class="feature_title">
+                <span>EQUIPMENT</span>
+                <h3>Build your brew setup.</h3>
+              </div>
             </div>
-            <p>Find the perfect equipment for your coffee</p>
-            <a href="./equipment.html">EXPLORE</a>
+
+            <div class="feature_content">
+              <p>
+                Find reliable tools that make brewing easier, better, and more
+                enjoyable.
+              </p>
+
+              <a href="./equipment.html">
+                SHOP EQUIPMENT
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
+
           <div class="feature_card">
             <div class="product_card">
               <img
                 src="../image/Coffee_Party.jpg"
-                alt="coffee party"
+                alt="Coffee event"
                 class="normal_img"
               />
+
               <img
                 src="../image/event2.png"
-                alt="coffee party"
+                alt="Coffee gathering"
                 class="hover_img"
               />
 
-              <span>EVENTS</span>
+              <div class="feature_overlay"></div>
+
+              <div class="feature_number">03</div>
+
+              <div class="feature_title">
+                <span>COMMUNITY</span>
+                <h3>Meet over good coffee.</h3>
+              </div>
             </div>
-            <p>Join our coffee events and great company</p>
-            <a href="./event.html">EXPLORE</a>
+
+            <div class="feature_content">
+              <p>
+                Join tastings, workshops, and relaxed events with people who
+                love coffee too.
+              </p>
+
+              <a href="./event.html">
+                VIEW EVENTS
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
       <section class="sec_3">
         <div class="best_text">
-          <h1>Best Sellers</h1>
+          <span class="small_label"> FROM OUR COFFEE BAR </span>
 
-          <p class="subtitle">
-            Discover some of our most-loved coffee blends and equipment,<br> chosen
-            by our customers.
-          </p>
+          <h2>
+            Loved by
+            <em>coffee lovers.</em>
+          </h2>
+
+          <p>A few favourites worth adding to your next brew.</p>
         </div>
 
-      <div class="slider">
+        <div class="swiper coffeeSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <span class="product_badge">BEST SELLER</span>
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img src="../image/berry.png" alt="Berry Bloom Coffee" />
+              </div>
 
-    <button type="button" class="slide_btn prev" aria-label="Previous products">
-    &lt;
-</button>
-
-    <div class="slide_box">
-
-        <div class="coffee_card">
-            <div class="coffee_pic">
-                <img src="../image/hazelnut.png" alt="Hazelnut coffee" />
-            </div>
-            <div class="add_to_cart">
-                <span class="product_name">HAZELNUT HARMONY</span>
-                <span class="price">$25.00</span>
-                <button class="cart_btn">ADD TO CART</button>
-            </div>
-        </div>
-
-        <div class="coffee_card">
-            <div class="coffee_pic">
-                <img src="../image/berry.png" alt="Berry coffee" />
-            </div>
-            <div class="add_to_cart">
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
                 <span class="product_name">BERRY BLOOM</span>
-                <span class="price">$20.00</span>
-                <button class="cart_btn">ADD TO CART</button>
+                <p>
+                  Bright and fruity with a refreshing berry and citrus
+                  character.
+                </p>
+
+                <div class="product_bottom">
+                  <span class="price">$20.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
             </div>
+
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <span class="product_badge">POPULAR</span>
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img src="../image/caramel.png" alt="Caramel Cloud Coffee" />
+              </div>
+
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
+                <span class="product_name">CARAMEL CLOUD</span>
+                <p>
+                  Smooth and sweet with a warm caramel aroma and mellow finish.
+                </p>
+
+                <div class="product_bottom">
+                  <span class="price">$22.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img
+                  src="../image/hazelnut.png"
+                  alt="Hazelnut Harmony Coffee"
+                />
+              </div>
+
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
+                <span class="product_name">HAZELNUT HARMONY</span>
+                <p>Warm and nutty with a smooth body and gentle sweetness.</p>
+
+                <div class="product_bottom">
+                  <span class="price">$25.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <span class="product_badge">NEW</span>
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img src="../image/velvet.png" alt="Velvet Mocha Coffee" />
+              </div>
+
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
+                <span class="product_name">VELVET MOCHA</span>
+                <p>Deep chocolate character with a smooth and creamy finish.</p>
+
+                <div class="product_bottom">
+                  <span class="price">$23.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img src="../image/midnight.png" alt="Midnight Roast Coffee" />
+              </div>
+
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
+                <span class="product_name">MIDNIGHT ROAST</span>
+                <p>
+                  A rich dark roast with an intense flavour and roasted finish.
+                </p>
+
+                <div class="product_bottom">
+                  <span class="price">$24.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide coffee_card">
+              <div class="coffee_blend">
+                <span class="product_badge">LIGHT ROAST</span>
+                <button class="wishlist_btn">
+                  <i class="fa-regular fa-star"></i>
+                </button>
+                <img src="../image/sunrise.png" alt="Morning Sunrise Coffee" />
+              </div>
+
+              <div class="add_to_cart">
+                <span class="product_origin">COFFEE BLEND</span>
+                <span class="product_name">MORNING SUNRISE</span>
+                <p>
+                  Smooth and balanced with milk chocolate and caramel notes.
+                </p>
+
+                <div class="product_bottom">
+                  <span class="price">$24.00</span>
+                  <button class="cart_btn">ADD TO CART</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-
-        <div class="coffee_card">
-            <div class="coffee_pic">
-                <img src="../image/kenya.png" alt="Kenya AA coffee" />
-            </div>
-            <div class="add_to_cart">
-                <span class="product_name">KENYA AA</span>
-                <span class="price">$23.00</span>
-                <button class="cart_btn">ADD TO CART</button>
-            </div>
-        </div>
-
-        <div class="coffee_card">
-            <div class="coffee_pic">
-                <img src="../image/french_press.png" alt="French press equipment" />
-            </div>
-            <div class="add_to_cart">
-                <span class="product_name">FRENCH PRESS</span>
-                <span class="price">$90.97</span>
-                <button class="cart_btn">ADD TO CART</button>
-            </div>
-        </div>
-
-        <div class="coffee_card">
-            <div class="coffee_pic">
-                <img src="../image/pour_over.png" alt="Pour over equipment" />
-            </div>
-            <div class="add_to_cart">
-                <span class="product_name">POUR OVER</span>
-                <span class="price">$35.00</span>
-                <button class="cart_btn">ADD TO CART</button>
-            </div>
-        </div>
-
-    </div>
-
-   <button type="button" class="slide_btn next" aria-label="Next products">
-    &gt;
-</button>
-
-</div>
       </section>
+
       <section class="sec_4">
         <div class="discover">
-          <div class="description">
-            <p>
-              At Bean Boutique, we believe coffee brings people together.
-              Discover our story, learn more about what we offer, and find out
-              where you can visit us.
-            </p>
-            <a href="./about_us.html">DISCOVER MORE</a>
-          </div>
-          <div class="photo_box">
+          <div class="discover_image">
             <img
               src="../image/enjoying_coffee.jpg"
-              alt="people drinking coffee"
+              alt="People enjoying coffee together"
             />
+
+            <span class="image_note"> SLOW DOWN · SIP · ENJOY </span>
           </div>
+
+          <div class="description">
+            <span class="small_label"> OUR STORY </span>
+
+            <h2>
+              More than
+              <br />
+              <em>just coffee.</em>
+            </h2>
+
+            <p>
+              Bean Boutique was created for people who believe coffee is more
+              than a drink. It is a reason to slow down, connect, create, and
+              enjoy the little moments.
+            </p>
+
+            <a href="./about_us.html">
+              DISCOVER OUR STORY
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home_cta">
+        <div class="cta_content">
+          <span class="small_label"> YOUR NEXT CUP AWAITS </span>
+
+          <h2>
+            Find your
+            <em>perfect brew.</em>
+          </h2>
+
+          <p>
+            Explore our coffee collection and discover something new for your
+            next coffee moment.
+          </p>
+
+          <a href="./coffee.html">
+            SHOP COFFEE
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </section>
     </main>
+
     <footer>
       <div class="footer_container">
         <div class="brand">
           <h2>
-         <img src="../image/logo.png" alt="bean boutique logo">
+            <img src="../image/logo.png" alt="Bean Boutique logo" />
+
             Bean Boutique
           </h2>
 
@@ -259,19 +515,27 @@
         </div>
 
         <div class="footer_info">
-          <span class="footer_head">Terms & Conditions</span>
-          <span class="footer_content">Returns & Refunds</span>
-          <span class="footer_content">Privacy & Policy</span>
-          <span class="footer_content">Cookies Policy</span>
+          <span class="footer_head"> Terms & Conditions </span>
+
+          <span class="footer_content"> Returns & Refunds </span>
+
+          <span class="footer_content"> Privacy & Policy </span>
+
+          <span class="footer_content"> Cookies Policy </span>
         </div>
+
         <div class="footer_info">
-          <span class="footer_head">Store</span>
-          <span class="footer_content">Contact Us</span>
-          <span class="footer_content">Shop</span>
-          <span class="footer_content">FAQ</span>
+          <span class="footer_head"> Store </span>
+
+          <span class="footer_content"> Contact Us </span>
+
+          <span class="footer_content"> Shop </span>
+
+          <span class="footer_content"> FAQ </span>
         </div>
+
         <div class="footer_info">
-          <span class="footer_head">Follow Us</span>
+          <span class="footer_head"> Follow Us </span>
 
           <div class="social_box">
             <i class="fa-brands fa-instagram social"></i>
@@ -289,10 +553,13 @@
           </div>
         </div>
       </div>
+
       <div class="copyright">
-        Copy Right &copy; 2026 Bean Boutique,All Rights Reserved.
+        Copyright &copy; 2026 Bean Boutique, All Rights Reserved.
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>

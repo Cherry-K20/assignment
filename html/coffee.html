@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Bean Boutique | Coffee</title>
+
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="../css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
@@ -13,61 +17,102 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-   
   </head>
+
   <body>
     <header>
       <div class="head_container">
         <div class="logo">
           <a href="./home.html">
-           <img src="../image/logo.png" alt="bean boutique logo">
+            <img src="../image/logo.png" alt="bean boutique logo" />
             <span>Bean Boutique</span>
           </a>
         </div>
+
         <nav class="nav_list">
           <ul>
-            <li><a href="./coffee.html">COFFEE </a></li>
-            <li><a href="./equipment.html">EQUIPMENTS </a></li>
-            <li><a href="./event.html">EVENTS </a></li>
-            <li><a href="./offer.html">OFFERS </a></li>
-            <li><a href="./about_us.html">ABOUT </a></li>
+            <li><a href="./coffee.html">COFFEE</a></li>
+            <li><a href="./equipment.html">EQUIPMENTS</a></li>
+            <li><a href="./event.html">EVENTS</a></li>
+            <li><a href="./offer.html">OFFERS</a></li>
+            <li><a href="./about_us.html">ABOUT</a></li>
           </ul>
         </nav>
-        <div class="btn_container">
-         
 
+        <div class="btn_container">
+          <a href="./wishlist.html"><i class="fa-solid fa-star star"></i></a>
           <a href="./cart.html"
             ><i class="fa-solid fa-cart-shopping cart"></i
           ></a>
-          <a href="./login.html">
-            <i class="fa-regular fa-circle-user user"></i
-          ></a>
+
+          <button class="menu_btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
       </div>
     </header>
+
     <main>
       <section class="blends">
-        <h1 class="heading">COFFEE BLENDS</h1>
-        <h2 class="subtitle">Find Your Perfect Blend</h2>
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="coffee_intro">
+          <span>THE BEAN BOUTIQUE COLLECTION</span>
 
-          <input
-            type="search"
-            id="coffeeSearch"
-            placeholder="Search coffee..."
-          />
+          <h1>
+            Find your
+            <em>perfect cup.</em>
+          </h1>
+
+          <p>
+            Explore smooth blends and distinctive single origins, each with its
+            own flavour, roast and brewing style.
+          </p>
+        </div>
+
+        <div class="coffee_collection_label">
+          <span>COFFEE COLLECTION</span>
+
+          <span>BLENDS • SINGLE ORIGIN</span>
+        </div>
+
+        <div class="product_filter">
+          <div class="search_box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="productSearch"
+              placeholder="Search coffee..."
+            />
+          </div>
+
+          <select id="productType">
+            <option value="all">ALL TYPES</option>
+            <option value="blend">COFFEE BLENDS</option>
+            <option value="origin">SINGLE ORIGIN</option>
+            <option value="light">LIGHT ROAST</option>
+            <option value="medium">MEDIUM ROAST</option>
+            <option value="dark">DARK ROAST</option>
+          </select>
         </div>
 
         <div class="product_box">
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend light"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img src="../image/berry.png" alt="Berry Bloom coffee" />
             </div>
 
@@ -85,19 +130,35 @@
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Tasting notes:</strong> BERRY . CITRUS</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$20.00</span>
-                <button class="cart_btn" >ADD TO CART</button>
+
+                <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=berry" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend medium"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img src="../image/caramel.png" alt="Caramel Cloud coffee" />
             </div>
 
@@ -115,20 +176,36 @@
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Tasting notes:</strong> CARAMEL . NUTTY</p>
+
                 <p><strong>Brewing method:</strong> FRENCH PRESS</p>
               </div>
 
               <div class="buy">
                 <span class="price">$22.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=caramel" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend medium"
+          >
             <div class="coffee_blend">
-              <img src="../image/hazelnut.png" alt="hazelnut coffee" />
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
+              <img src="../image/hazelnut.png" alt="Hazelnut Harmony coffee" />
             </div>
 
             <div class="blend_info">
@@ -136,28 +213,44 @@
 
               <div class="type">
                 <span class="tag1">MEDIUM ROAST</span>
-                <span class="tag2">Nutty & smooth</span>
+                <span class="tag2">NUTTY & SMOOTH</span>
               </div>
 
               <p class="brief_info">
-                A warm,nutty blend with a smooth body and gentle sweetness.
+                A warm, nutty blend with a smooth body and gentle sweetness.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Tasting notes:</strong> HAZELNUT . CHOCOLATE</p>
+
                 <p><strong>Brewing method:</strong> FRENCH PRESS</p>
               </div>
 
               <div class="buy">
-                <span class="price"> $25.00 </span>
+                <span class="price">$25.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=hazelnut" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend dark"
+          >
             <div class="coffee_blend">
-              <img src="../image/velvet.png" alt="Velvet coffee" />
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
+              <img src="../image/velvet.png" alt="Velvet Mocha coffee" />
             </div>
 
             <div class="blend_info">
@@ -174,20 +267,36 @@
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Tasting notes:</strong> COCOA . HAZELNUT</p>
+
                 <p><strong>Brewing method:</strong> MOKA POT</p>
               </div>
 
               <div class="buy">
                 <span class="price">$23.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=velvet" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend dark"
+          >
             <div class="coffee_blend">
-              <img src="../image/midnight.png" alt="midnight coffee" />
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
+              <img src="../image/midnight.png" alt="Midnight Roast coffee" />
             </div>
 
             <div class="blend_info">
@@ -199,27 +308,42 @@
               </div>
 
               <p class="brief_info">
-                A dark roast for coffee lovers who enjoys a rich and intense
-                cup.
+                A dark roast for coffee lovers who enjoy a rich and intense cup.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p>
                   <strong>Tasting notes:</strong> ROASTED NUTS . SMOKEY FINISH
                 </p>
+
                 <p><strong>Brewing method:</strong> ESPRESSO</p>
               </div>
 
               <div class="buy">
                 <span class="price">$24.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=midnight" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="blend light"
+          >
             <div class="coffee_blend">
-              <img src="../image/sunrise.png" alt="Sunrise coffee" />
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
+              <img src="../image/sunrise.png" alt="Morning Sunrise coffee" />
             </div>
 
             <div class="blend_info">
@@ -231,31 +355,61 @@
               </div>
 
               <p class="brief_info">
-                A smooth and balanced blend made for an easy,refreshing start to
-                the day.
+                A smooth and balanced blend made for an easy, refreshing start
+                to the day.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Tasting notes:</strong> MILK CHOCOLATE . CARAMEL</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$24.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=sunrise" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
         </div>
+        <div class="coffee_collection_banner">
+          <div>
+            <span>FROM BLEND TO ORIGIN</span>
+            <h2>Every bean has <em>a story.</em></h2>
+            <p>
+              Discover coffees from different origins, roast levels and flavour
+              profiles.
+            </p>
+          </div>
+          <a href="#singleOrigin">
+            EXPLORE ORIGINS <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
       </section>
 
-      <section class="single_origin">
+      <section class="single_origin" id="singleOrigin">
         <h1 class="heading">SINGLE ORIGIN</h1>
-        <h2 class="subtitle">Explore Coffee From Around The World</h2>
+
+        <p class="subtitle">Discover Coffee From Around The World</p>
 
         <div class="product_box">
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin light"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img
                 src="../image/ethiopian.png"
                 alt="Ethiopia Yirgacheffe coffee"
@@ -271,25 +425,41 @@
               </div>
 
               <p class="brief_info">
-                A delicate coffee with a bright aroma and refreshing fruity
-                flavour.
+                A delicate coffee with floral aromas and bright fruity flavours.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> ETHIOPIA</p>
+
                 <p><strong>Tasting notes:</strong> JASMINE . BERRY</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$28.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=ethiopia" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin medium"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img src="../image/colambia.png" alt="Colombia Supremo coffee" />
             </div>
 
@@ -302,24 +472,42 @@
               </div>
 
               <p class="brief_info">
-                A smooth and balanced coffee with a sweet aroma and rich finish.
+                A smooth and sweet coffee with a balanced body and pleasant
+                finish.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> COLOMBIA</p>
+
                 <p><strong>Tasting notes:</strong> CARAMEL . RED BERRY</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$27.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=colombia" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin medium"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img src="../image/brazil.png" alt="Brazil Santos coffee" />
             </div>
 
@@ -332,25 +520,42 @@
               </div>
 
               <p class="brief_info">
-                A rich and comforting coffee with a smooth body and sweet nutty
-                flavour.
+                A mellow coffee with a nutty aroma, gentle sweetness and smooth
+                body.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> BRAZIL</p>
+
                 <p><strong>Tasting notes:</strong> ALMOND . MILK CHOCOLATE</p>
+
                 <p><strong>Brewing method:</strong> FRENCH PRESS</p>
               </div>
 
               <div class="buy">
                 <span class="price">$25.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=brazil" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin medium"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img
                 src="../image/guatamala.png"
                 alt="Guatemala Antigua coffee"
@@ -366,25 +571,45 @@
               </div>
 
               <p class="brief_info">
-                A rich coffee with a warm aroma, smooth body and subtle spicy
-                finish.
+                A rich and balanced coffee with cocoa flavours and a gentle
+                spicy finish.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> GUATEMALA</p>
+
                 <p><strong>Tasting notes:</strong> COCOA . SPICE</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$29.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a
+                href="./coffee_detail.html?coffee=guatemala"
+                class="detail_btn"
+              >
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin light"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img src="../image/kenya.png" alt="Kenya AA coffee" />
             </div>
 
@@ -397,25 +622,42 @@
               </div>
 
               <p class="brief_info">
-                A vibrant coffee with lively acidity and a refreshing fruity
-                character.
+                A bright and lively coffee with juicy fruit flavours and
+                refreshing acidity.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> KENYA</p>
+
                 <p><strong>Tasting notes:</strong> BLACKCURRANT . CITRUS</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$23.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a href="./coffee_detail.html?coffee=kenya" class="detail_btn">
+                VIEW DETAILS
+              </a>
             </div>
           </div>
 
-          <div class="coffee_blends_box">
+          <div
+            class="coffee_blends_box"
+            data-category="coffee"
+            data-type="origin medium"
+          >
             <div class="coffee_blend">
+              <button class="wishlist_btn">
+                <i class="fa-regular fa-star"></i>
+              </button>
+
               <img
                 src="../image/costa_rica.png"
                 alt="Costa Rica Tarrazu coffee"
@@ -431,30 +673,44 @@
               </div>
 
               <p class="brief_info">
-                A clean and balanced coffee with a bright aroma and naturally
-                sweet finish.
+                A clean and bright coffee with a refreshing citrus character and
+                honey sweetness.
               </p>
 
               <div class="details">
+                <p><strong>Weight:</strong> 250g</p>
+
                 <p><strong>Origin:</strong> COSTA RICA</p>
+
                 <p><strong>Tasting notes:</strong> ORANGE . HONEY</p>
+
                 <p><strong>Brewing method:</strong> POUR OVER</p>
               </div>
 
               <div class="buy">
                 <span class="price">$28.00</span>
+
                 <button class="cart_btn">ADD TO CART</button>
               </div>
+
+              <a
+                href="./coffee_detail.html?coffee=costa_rica"
+                class="detail_btn"
+              >
+                VIEW DETAILS
+              </a>
             </div>
           </div>
         </div>
       </section>
     </main>
+
     <footer>
       <div class="footer_container">
         <div class="brand">
           <h2>
-         <img src="../image/logo.png" alt="bean boutique logo">
+            <img src="../image/logo.png" alt="bean boutique logo" />
+
             Bean Boutique
           </h2>
 
@@ -462,40 +718,53 @@
         </div>
 
         <div class="footer_info">
-          <span class="footer_head">Terms & Conditions</span>
-          <span class="footer_content">Returns & Refunds</span>
-          <span class="footer_content">Privacy & Policy</span>
-          <span class="footer_content">Cookies Policy</span>
+          <span class="footer_head"> Terms & Conditions </span>
+
+          <span class="footer_content"> Returns & Refunds </span>
+
+          <span class="footer_content"> Privacy & Policy </span>
+
+          <span class="footer_content"> Cookies Policy </span>
         </div>
+
         <div class="footer_info">
-          <span class="footer_head">Store</span>
-          <span class="footer_content">Contact Us</span>
-          <span class="footer_content">Shop</span>
-          <span class="footer_content">FAQ</span>
+          <span class="footer_head"> Store </span>
+
+          <span class="footer_content"> Contact Us </span>
+
+          <span class="footer_content"> Shop </span>
+
+          <span class="footer_content"> FAQ </span>
         </div>
+
         <div class="footer_info">
-          <span class="footer_head">Follow Us</span>
+          <span class="footer_head"> Follow Us </span>
 
           <div class="social_box">
             <i class="fa-brands fa-instagram social"></i>
-            <span>@beanboutique1</span>
+
+            <span> @beanboutique1 </span>
           </div>
 
           <div class="social_box">
             <i class="fa-brands fa-facebook social"></i>
-            <span>@BeanBoutique CoffeeShop</span>
+
+            <span> @BeanBoutique CoffeeShop </span>
           </div>
 
           <div class="social_box">
             <i class="fa-brands fa-tiktok social"></i>
-            <span>@bean-boutique</span>
+
+            <span> @bean-boutique </span>
           </div>
         </div>
       </div>
+
       <div class="copyright">
         Copy Right &copy; 2026 Bean Boutique,All Rights Reserved.
       </div>
     </footer>
+
     <script src="../js/script.js"></script>
   </body>
 </html>

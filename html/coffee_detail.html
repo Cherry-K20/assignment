@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bean Boutique | Cart</title>
+    <title>Bean Boutique | Coffee Details</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <header>
@@ -48,34 +48,39 @@
       </div>
     </header>
     <main>
-      <section id="cart" class="cart_sec">
-        <div class="cart_heading">
-          <p class="heading">MY COFFEE CART</p>
-          <p class="subtitle">READY FOR YOUR NEXT BREW?</p>
+      <section class="coffee_detail">
+        <div class="coffee_detail_image">
+          <img id="detailImage" src="../image/berry.png" alt="Coffee" />
         </div>
-        <div class="cart_container">
-          <div id="cartItems" class="cart_items">
-            <p class="empty-cart">Your cart is empty.</p>
+        <div class="coffee_detail_info">
+          <p class="detail_category" id="detailCategory">COFFEE BLEND</p>
+          <h1 id="detailName">BERRY BLOOM</h1>
+          <p id="detailDescription">
+            A bright and fruity blend with a lively aroma and refreshing
+            acidity.
+          </p>
+          <div class="detail_info_box">
+            <p><strong>Weight:</strong> <span id="detailWeight">250g</span></p>
+            <p>
+              <strong>Roast:</strong> <span id="detailRoast">Light Roast</span>
+            </p>
+            <p>
+              <strong>Tasting Notes:</strong>
+              <span id="detailTaste">Berry, Citrus</span>
+            </p>
+            <p>
+              <strong>Brewing Method:</strong>
+              <span id="detailBrew">Pour Over</span>
+            </p>
+            <p id="originRow">
+              <strong>Origin:</strong> <span id="detailOrigin">-</span>
+            </p>
           </div>
-          <div class="cart_summary">
-            <h2>Order Summary</h2>
-            <div class="summary_row">
-              <span>SUBTOTAL</span>
-              <span>$ <span id="cartSubtotal">0</span></span>
-            </div>
-            <div class="summary_row"><span>SHIPPING</span> <span>$3</span></div>
-            <div class="summary_row">
-              <span>TAX</span> <span>$ <span id="cartTax">0</span></span>
-            </div>
-            <hr />
-            <div class="summary_total">
-              <strong>TOTAL</strong>
-              <strong>$ <span id="cartTotal">0</span></strong>
-            </div>
-            <button class="checkout_btn" type="button">
-              PROCEED TO CHECKOUT
-            </button>
-          </div>
+          <h2 id="detailPrice">$20.00</h2>
+          <button class="cart_btn detail_cart">ADD TO CART</button>
+          <a href="./coffee.html" class="back_coffee">
+            <i class="fa-solid fa-arrow-left"></i> BACK TO COFFEE
+          </a>
         </div>
       </section>
     </main>
