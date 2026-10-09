@@ -1,854 +1,310 @@
-const closeBtn = document.getElementById("btn");
+function notify(message) {
+    if (typeof Toastify === "function") {
+        Toastify({ text: message, duration: 2500, gravity: "top", position: "right" }).showToast();
+    } else {
+        alert(message);
+    }
+}
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+function saveCart() { localStorage.setItem("cart", JSON.stringify(cart)); }
+function saveWishlist() { localStorage.setItem("wishlist", JSON.stringify(wishlist)); }
+
+function addCart(name, price) {
+    let item = cart.find(product => product.name === name);
+    if (item) item.quantity++;
+    else cart.push({ name: name, price: parseFloat(String(price).replace("$", "")), quantity: 1 });
+    saveCart();
+    notify(name + " added to cart!");
+}
 const promotion = document.getElementById("promotion");
+const closeBtn = document.getElementById("btn");
 const promotionForm = document.getElementById("promotion_form");
 
-if (closeBtn && promotion) {
-    closeBtn.onclick = function() {
-        promotion.style.display = "none";
-    };
-}
+if (closeBtn && promotion) closeBtn.onclick = () => promotion.style.display = "none";
 
-if (promotionForm) {
-    promotionForm.onsubmit = function(event) {
-        event.preventDefault();
-
-        alert("Thank you! Your 10% discount is ready.");
-    };
-}
-const navLinks = document.querySelectorAll(".nav_list li a");
-
-navLinks.forEach(function(link) {
-
-    if (link.href === window.location.href) {
-        link.classList.add("current");
-    }
-
+if (promotionForm) promotionForm.onsubmit = event => {
+    event.preventDefault();
+    notify("Thank you! Your 10% discount is ready.");
+    if (promotion) promotion.style.display = "none";
+    promotionForm.reset();
+};
+document.querySelectorAll(".nav_list li a").forEach(link => {
+    if (link.href === window.location.href) link.classList.add("current");
 });
+
 const menuBtn = document.querySelector(".menu_btn");
 const navList = document.querySelector(".nav_list");
 
-if (menuBtn && navList) {
+if (menuBtn && navList) menuBtn.onclick = () => navList.classList.toggle("show");
 
-    menuBtn.onclick = function() {
-        navList.classList.toggle("show");
-    };
+document.addEventListener("click", event => {
+    const button = event.target.closest(".cart_btn");
+    if (!button) return;
 
-}
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const card = button.closest(".coffee_card, .coffee_blends_box, .wishlist_card, .equipment_card, .equipment_box, .product_box");
+    if (!card) return;
 
-document.querySelectorAll(".cart_btn").forEach(function(button) {
+    const name = card.querySelector(".product_name");
+    const price = card.querySelector(".price");
 
-    button.onclick = function() {
-
-        let card = button.closest(
-            ".coffee_card, .coffee_blends_box, .wishlist_card"
-        );
-
-        if (!card) {
-            return;
-        }
-
-        let name =
-            card.querySelector(".product_name").textContent.trim();
-
-        let price =
-            parseFloat(
-                card.querySelector(".price").textContent.replace("$", "")
-            );
-
-        let product = cart.find(function(item) {
-            return item.name === name;
-        });
-
-        if (product) {
-
-            product.quantity++;
-
-        } else {
-
-            cart.push({
-                name: name,
-                price: price,
-                quantity: 1
-            });
-
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        alert(name + " added to cart!");
-
-    };
-
+    if (name && price) addCart(name.textContent.trim(), price.textContent.trim());
 });
 const cartItems = document.getElementById("cartItems");
 
-if (cartItems) {
+function showCart() {
+    if (!cartItems) return;
 
-    if (cart.length === 0) {
+    cartItems.innerHTML = "";
+    let subtotal = 0;
 
-        cartItems.innerHTML =
-            "<p class='empty-cart'>Your cart is empty.</p>";
+    if (!cart.length) cartItems.innerHTML = "<p class='empty-cart'>Your cart is empty.</p>";
 
-        document.getElementById("cartSubtotal").textContent = "0.00";
-        document.getElementById("cartTax").textContent = "0.00";
-        document.getElementById("cartTotal").textContent = "0.00";
+    cart.forEach((product, index) => {
+        const item = document.createElement("div");
+        item.className = "cart_item";
 
-    } else {
+        item.innerHTML = "<div class='cart_product'><h2></h2><p></p></div>" +
+            "<div class='quantity'><button class='minus_btn' type='button'>-</button><span></span><button class='plus_btn' type='button'>+</button></div>" +
+            "<p class='item_total'></p><button class='remove_btn' type='button'>REMOVE</button>";
 
-        cartItems.innerHTML = "";
+        item.querySelector("h2").textContent = product.name;
+        item.querySelector(".cart_product p").textContent = "$" + product.price.toFixed(2);
+        item.querySelector(".quantity span").textContent = product.quantity;
+        item.querySelector(".item_total").textContent = "$" + (product.price * product.quantity).toFixed(2);
 
-        cart.forEach(function(product, index) {
+        cartItems.appendChild(item);
+        subtotal += product.price * product.quantity;
 
-            let item = document.createElement("div");
-
-            item.className = "cart_item";
-
-            item.innerHTML =
-                "<div class='cart_product'>" +
-                    "<h2>" + product.name + "</h2>" +
-                    "<p>$" + product.price.toFixed(2) + "</p>" +
-                "</div>" +
-
-                "<div class='quantity'>" +
-                    "<button class='minus_btn'>-</button>" +
-                    "<span>" + product.quantity + "</span>" +
-                    "<button class='plus_btn'>+</button>" +
-                "</div>" +
-
-                "<p>$" +
-                    (product.price * product.quantity).toFixed(2) +
-                "</p>" +
-
-                "<button class='remove_btn'>REMOVE</button>";
-
-            cartItems.appendChild(item);
-            item.querySelector(".plus_btn").onclick = function() {
-
-                product.quantity++;
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-
-                location.reload();
-
-            };
-            item.querySelector(".minus_btn").onclick = function() {
-
-                if (product.quantity > 1) {
-
-                    product.quantity--;
-
-                } else {
-
-                    cart.splice(index, 1);
-
-                }
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-
-                location.reload();
-
-            };
-             item.querySelector(".remove_btn").onclick = function() {
-
-                cart.splice(index, 1);
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-
-                location.reload();
-
-            };
-
-        });
- let subtotal = 0;
-
-        cart.forEach(function(product) {
-
-            subtotal += product.price * product.quantity;
-
-        });
-
-        let tax = subtotal * 0.05;
-
-        let total = subtotal + tax + 3;
-
-        document.getElementById("cartSubtotal").textContent =
-            subtotal.toFixed(2);
-
-        document.getElementById("cartTax").textContent =
-            tax.toFixed(2);
-
-        document.getElementById("cartTotal").textContent =
-            total.toFixed(2);
-
-    }
-
-}
-const checkoutButton =
-    document.querySelector(".checkout_btn");
-
-if (checkoutButton) {
-
-    checkoutButton.onclick = function() {
-
-        if (cart.length === 0) {
-
-            alert("Your cart is empty!");
-
-            return;
-
-        }
-
-        let total = 0;
-
-        cart.forEach(function(product) {
-
-            total += product.price * product.quantity;
-
-        });
-
-        total = total + total * 0.05 + 3;
-
-        alert(
-            "Thank you for your order! Total: $" +
-            total.toFixed(2)
-        );
-
-        cart = [];
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-        location.reload();
-
-    };
-
-}
-const eventForm =
-    document.getElementById("eventForm");
-
-if (eventForm) {
-
-    eventForm.onsubmit = function(event) {
-
-        event.preventDefault();
-
-        alert("Registration successful!");
-
-        eventForm.reset();
-
-    };
-
-}
-const productSearch =
-    document.getElementById("productSearch");
-
-const productType =
-    document.getElementById("productType");
-
-if (productSearch && productType) {
-
-    function filterCoffee() {
-
-        let search =
-            productSearch.value.toLowerCase();
-
-        let type =
-            productType.value;
-
-        document
-            .querySelectorAll(".coffee_blends_box")
-            .forEach(function(product) {
-
-                let name =
-                    product
-                        .querySelector(".product_name")
-                        .textContent
-                        .toLowerCase();
-
-                let category =
-                    product.dataset.type;
-
-                let searchMatch =
-                    name.includes(search);
-
-                let typeMatch =
-                    type === "all" ||
-                    category.includes(type);
-
-                if (searchMatch && typeMatch) {
-
-                    product.style.display = "block";
-
-                } else {
-
-                    product.style.display = "none";
-
-                }
-
-            });
-
-    }
-
-    productSearch.oninput = filterCoffee;
-
-    productType.onchange = filterCoffee;
-
-}
-
-const coffeeKey =
-    new URLSearchParams(window.location.search).get("coffee");
-
-const coffeeData = {
-
-    berry: {
-        name: "BERRY BLOOM",
-        image: "../image/berry.png",
-        category: "COFFEE BLEND",
-        description:
-            "A bright and fruity blend with a lively aroma and refreshing acidity.",
-        weight: "250g",
-        roast: "Light Roast",
-        taste: "Berry, Citrus",
-        brew: "Pour Over",
-        origin: "-",
-        price: "$20.00"
-    },
-
-    caramel: {
-        name: "CARAMEL CLOUD",
-        image: "../image/caramel.png",
-        category: "COFFEE BLEND",
-        description:
-            "A smooth and sweet blend with a warm caramel aroma and mellow finish.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Caramel, Nutty",
-        brew: "French Press",
-        origin: "-",
-        price: "$22.00"
-    },
-
-    hazelnut: {
-        name: "HAZELNUT HARMONY",
-        image: "../image/hazelnut.png",
-        category: "COFFEE BLEND",
-        description:
-            "A warm, nutty blend with a smooth body and gentle sweetness.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Hazelnut, Chocolate",
-        brew: "French Press",
-        origin: "-",
-        price: "$25.00"
-    },
-
-    velvet: {
-        name: "VELVET MOCHA",
-        image: "../image/velvet.png",
-        category: "COFFEE BLEND",
-        description:
-            "A comforting blend with a deep chocolate character and a creamy finish.",
-        weight: "250g",
-        roast: "Dark Roast",
-        taste: "Cocoa, Hazelnut",
-        brew: "Moka Pot",
-        origin: "-",
-        price: "$23.00"
-    },
-
-    midnight: {
-        name: "MIDNIGHT ROAST",
-        image: "../image/midnight.png",
-        category: "COFFEE BLEND",
-        description:
-            "A dark roast for coffee lovers who enjoy a rich and intense cup.",
-        weight: "250g",
-        roast: "Dark Roast",
-        taste: "Roasted Nuts, Smokey Finish",
-        brew: "Espresso",
-        origin: "-",
-        price: "$24.00"
-    },
-
-    sunrise: {
-        name: "MORNING SUNRISE",
-        image: "../image/sunrise.png",
-        category: "COFFEE BLEND",
-        description:
-            "A smooth and balanced blend made for an easy, refreshing start to the day.",
-        weight: "250g",
-        roast: "Light Roast",
-        taste: "Milk Chocolate, Caramel",
-        brew: "Pour Over",
-        origin: "-",
-        price: "$24.00"
-    },
-
-    ethiopia: {
-        name: "ETHIOPIA YIRGACHEFFE",
-        image: "../image/ethiopian.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A delicate coffee with floral aromas and bright fruity flavours.",
-        weight: "250g",
-        roast: "Light Roast",
-        taste: "Jasmine, Berry",
-        brew: "Pour Over",
-        origin: "Ethiopia",
-        price: "$28.00"
-    },
-
-    colombia: {
-        name: "COLOMBIA SUPREMO",
-        image: "../image/colambia.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A smooth and sweet coffee with a balanced body and pleasant finish.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Caramel, Red Berry",
-        brew: "Pour Over",
-        origin: "Colombia",
-        price: "$27.00"
-    },
-
-    brazil: {
-        name: "BRAZIL SANTOS",
-        image: "../image/brazil.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A mellow coffee with a nutty aroma, gentle sweetness and smooth body.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Almond, Milk Chocolate",
-        brew: "French Press",
-        origin: "Brazil",
-        price: "$25.00"
-    },
-
-    guatemala: {
-        name: "GUATEMALA ANTIGUA",
-        image: "../image/guatamala.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A rich and balanced coffee with cocoa flavours and a gentle spicy finish.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Cocoa, Spice",
-        brew: "Pour Over",
-        origin: "Guatemala",
-        price: "$29.00"
-    },
-
-    kenya: {
-        name: "KENYA AA",
-        image: "../image/kenya.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A bright and lively coffee with juicy fruit flavours and refreshing acidity.",
-        weight: "250g",
-        roast: "Light Roast",
-        taste: "Blackcurrant, Citrus",
-        brew: "Pour Over",
-        origin: "Kenya",
-        price: "$23.00"
-    },
-
-    costa_rica: {
-        name: "COSTA RICA TARRAZÚ",
-        image: "../image/costa_rica.png",
-        category: "SINGLE ORIGIN",
-        description:
-            "A clean and bright coffee with a refreshing citrus character and honey sweetness.",
-        weight: "250g",
-        roast: "Medium Roast",
-        taste: "Orange, Honey",
-        brew: "Pour Over",
-        origin: "Costa Rica",
-        price: "$28.00"
-    }
-
-};
-
-if (coffeeKey && coffeeData[coffeeKey]) {
-
-    let coffee = coffeeData[coffeeKey];
-
-    document.getElementById("detailName").textContent =
-        coffee.name;
-
-    document.getElementById("detailImage").src =
-        coffee.image;
-
-    document.getElementById("detailImage").alt =
-        coffee.name;
-
-    document.getElementById("detailCategory").textContent =
-        coffee.category;
-
-    document.getElementById("detailDescription").textContent =
-        coffee.description;
-
-    document.getElementById("detailWeight").textContent =
-        coffee.weight;
-
-    document.getElementById("detailRoast").textContent =
-        coffee.roast;
-
-    document.getElementById("detailTaste").textContent =
-        coffee.taste;
-
-    document.getElementById("detailBrew").textContent =
-        coffee.brew;
-
-    document.getElementById("detailOrigin").textContent =
-        coffee.origin;
-
-    document.getElementById("detailPrice").textContent =
-        coffee.price;
-
-    if (coffee.origin === "-") {
-
-        document.getElementById("originRow").style.display =
-            "none";
-
-    }
-
-}
-const detailCart =
-    document.querySelector(".detail_cart");
-
-if (detailCart && coffeeKey && coffeeData[coffeeKey]) {
-
-    detailCart.onclick = function() {
-
-        let coffee = coffeeData[coffeeKey];
-
-        let product = cart.find(function(item) {
-
-            return item.name === coffee.name;
-
-        });
-
-        if (product) {
-
+        item.querySelector(".plus_btn").onclick = () => {
             product.quantity++;
-
-        } else {
-
-            cart.push({
-                name: coffee.name,
-                price: parseFloat(
-                    coffee.price.replace("$", "")
-                ),
-                quantity: 1
-            });
-
-        }
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-        alert(coffee.name + " added to cart!");
-
-    };
-
-}
-let wishlist =
-    JSON.parse(localStorage.getItem("wishlist")) || [];
-document
-    .querySelectorAll(".wishlist_btn")
-    .forEach(function(button) {
-
-        button.onclick = function(event) {
-
-            event.preventDefault();
-
-            let card =
-                button.closest(
-                    ".coffee_blends_box, .coffee_card"
-                );
-
-            if (!card) {
-                return;
-            }
-
-            let name =
-                card
-                    .querySelector(".product_name")
-                    .textContent;
-
-            let image =
-                card.querySelector("img").src;
-
-            let price =
-                card
-                    .querySelector(".price")
-                    .textContent;
-
-            let exists =
-                wishlist.some(function(item) {
-
-                    return item.name === name;
-
-                });
-
-            if (exists) {
-
-                alert(
-                    name +
-                    " is already in your wishlist!"
-                );
-
-            } else {
-
-                wishlist.push({
-                    name: name,
-                    image: image,
-                    price: price
-                });
-
-                localStorage.setItem(
-                    "wishlist",
-                    JSON.stringify(wishlist)
-                );
-
-                button.querySelector("i").className =
-                    "fa-solid fa-star";
-
-                alert(
-                    name +
-                    " added to wishlist!"
-                );
-
-            }
-
+            saveCart();
+            showCart();
         };
 
+        item.querySelector(".minus_btn").onclick = () => {
+            if (product.quantity > 1) product.quantity--;
+            else cart.splice(index, 1);
+            saveCart();
+            showCart();
+        };
+
+        item.querySelector(".remove_btn").onclick = () => {
+            cart.splice(index, 1);
+            saveCart();
+            showCart();
+        };
     });
-const wishlistItems =
-    document.getElementById("wishlistItems");
 
-if (wishlistItems) {
+    const tax = subtotal * 0.05;
+    const total = subtotal + tax + (cart.length ? 3 : 0);
 
-    wishlistItems.innerHTML = "";
+    const subtotalEl = document.getElementById("cartSubtotal");
+    const taxEl = document.getElementById("cartTax");
+    const totalEl = document.getElementById("cartTotal");
 
-    if (wishlist.length === 0) {
+    if (subtotalEl) subtotalEl.textContent = subtotal.toFixed(2);
+    if (taxEl) taxEl.textContent = tax.toFixed(2);
+    if (totalEl) totalEl.textContent = total.toFixed(2);
+}
 
-        wishlistItems.innerHTML =
-            "<p class='empty_wishlist'>" +
-            "Your wishlist is empty!" +
-            "</p>";
+showCart();
+const checkoutButton = document.querySelector(".checkout_btn");
 
-    } else {
-
-        wishlist.forEach(function(product) {
-
-            wishlistItems.innerHTML +=
-
-                "<div class='coffee_blends_box wishlist_card'>" +
-
-                    "<div class='coffee_blend'>" +
-
-                        "<img src='" +
-                        product.image +
-                        "' alt='" +
-                        product.name +
-                        "'>" +
-
-                    "</div>" +
-
-                    "<div class='blend_info'>" +
-
-                        "<h2 class='product_name'>" +
-                            product.name +
-                        "</h2>" +
-
-                        "<p class='price'>" +
-                            product.price +
-                        "</p>" +
-
-                        "<button class='cart_btn wishlist_cart'>" +
-                            "ADD TO CART" +
-                        "</button>" +
-
-                        "<button class='remove_wishlist'>" +
-                            "<i class='fa-solid fa-trash'></i> REMOVE" +
-                        "</button>" +
-
-                    "</div>" +
-
-                "</div>";
-
-        });
-document.querySelectorAll(".wishlist_cart")
-            .forEach(function(button, index) {
-
-                button.onclick = function() {
-
-                    let product =
-                        wishlist[index];
-
-                    let cartProduct =
-                        cart.find(function(item) {
-
-                            return item.name === product.name;
-
-                        });
-
-                    if (cartProduct) {
-
-                        cartProduct.quantity++;
-
-                    } else {
-
-                        cart.push({
-                            name: product.name,
-                            price: parseFloat(
-                                product.price.replace("$", "")
-                            ),
-                            quantity: 1
-                        });
-
-                    }
-
-                    localStorage.setItem(
-                        "cart",
-                        JSON.stringify(cart)
-                    );
-
-                    alert(
-                        product.name +
-                        " added to cart!"
-                    );
-
-                };
-
-            });
- document.querySelectorAll(".remove_wishlist")
-            .forEach(function(button, index) {
-
-                button.onclick = function() {
-
-                    wishlist.splice(index, 1);
-
-                    localStorage.setItem(
-                        "wishlist",
-                        JSON.stringify(wishlist)
-                    );
-
-                    location.reload();
-
-                };
-
-            });
-
+if (checkoutButton) checkoutButton.onclick = () => {
+    if (!cart.length) {
+        notify("Your cart is empty!");
+        return;
     }
 
+    let total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+    total = total * 1.05 + 3;
+
+    notify("Thank you for your order! Total: $" + total.toFixed(2));
+
+    cart = [];
+    saveCart();
+    showCart();
+};
+const eventForm = document.getElementById("eventForm");
+
+if (eventForm) eventForm.onsubmit = event => {
+    event.preventDefault();
+    notify("Registration successful!");
+    eventForm.reset();
+};
+const productSearch = document.getElementById("productSearch");
+const productType = document.getElementById("productType");
+const coffeeBanner = document.querySelector(".coffee_collection_banner");
+
+function filterCoffee() {
+    const search = productSearch.value.toLowerCase();
+    const type = productType.value;
+
+    document.querySelectorAll(".product_box .coffee_blends_box").forEach(product => {
+        const name = product.querySelector(".product_name");
+        const category = product.dataset.type || "";
+
+        product.style.display =
+            name &&
+            name.textContent.toLowerCase().includes(search) &&
+            (type === "all" || category.split(" ").includes(type))
+                ? ""
+                : "none";
+    });
+
+    if (coffeeBanner) {
+        coffeeBanner.style.display =
+            type === "all" && search === "" ? "" : "none";
+    }
 }
-let subscribeBtn = document.getElementById("subscribeBtn");
-let subscriptionPopup = document.getElementById("subscriptionPopup");
-let closeSubscription = document.getElementById("closeSubscription");
-let subscriptionForm = document.getElementById("subscriptionForm");
 
-if (subscribeBtn) {
-
-    subscribeBtn.onclick = function() {
-        subscriptionPopup.style.display = "flex";
-    };
-
+if (productSearch && productType) {
+    productSearch.oninput = filterCoffee;
+    productType.onchange = filterCoffee;
 }
 
-if (closeSubscription) {
+const coffeeData = {
+    berry: { name: "BERRY BLOOM", image: "berry.png", category: "COFFEE BLEND", description: "A bright and fruity blend with a lively aroma and refreshing acidity.", weight: "250g", roast: "Light Roast", taste: "Berry, Citrus", brew: "Pour Over", origin: "-", price: "$20.00" },
+    caramel: { name: "CARAMEL CLOUD", image: "caramel.png", category: "COFFEE BLEND", description: "A smooth and sweet blend with a warm caramel aroma and mellow finish.", weight: "250g", roast: "Medium Roast", taste: "Caramel, Nutty", brew: "French Press", origin: "-", price: "$22.00" },
+    hazelnut: { name: "HAZELNUT HARMONY", image: "hazelnut.png", category: "COFFEE BLEND", description: "A warm, nutty blend with a smooth body and gentle sweetness.", weight: "250g", roast: "Medium Roast", taste: "Hazelnut, Chocolate", brew: "French Press", origin: "-", price: "$25.00" },
+    velvet: { name: "VELVET MOCHA", image: "velvet.png", category: "COFFEE BLEND", description: "A comforting blend with a deep chocolate character and a creamy finish.", weight: "250g", roast: "Dark Roast", taste: "Cocoa, Hazelnut", brew: "Moka Pot", origin: "-", price: "$23.00" },
+    midnight: { name: "MIDNIGHT ROAST", image: "midnight.png", category: "COFFEE BLEND", description: "A dark roast for coffee lovers who enjoy a rich and intense cup.", weight: "250g", roast: "Dark Roast", taste: "Roasted Nuts, Smokey Finish", brew: "Espresso", origin: "-", price: "$24.00" },
+    sunrise: { name: "MORNING SUNRISE", image: "sunrise.png", category: "COFFEE BLEND", description: "A smooth and balanced blend made for an easy, refreshing start to the day.", weight: "250g", roast: "Light Roast", taste: "Milk Chocolate, Caramel", brew: "Pour Over", origin: "-", price: "$24.00" },
+    ethiopia: { name: "ETHIOPIA YIRGACHEFFE", image: "ethiopian.png", category: "SINGLE ORIGIN", description: "A delicate coffee with floral aromas and bright fruity flavours.", weight: "250g", roast: "Light Roast", taste: "Jasmine, Berry", brew: "Pour Over", origin: "Ethiopia", price: "$28.00" },
+    colombia: { name: "COLOMBIA SUPREMO", image: "colambia.png", category: "SINGLE ORIGIN", description: "A smooth and sweet coffee with a balanced body and pleasant finish.", weight: "250g", roast: "Medium Roast", taste: "Caramel, Red Berry", brew: "Pour Over", origin: "Colombia", price: "$27.00" },
+    brazil: { name: "BRAZIL SANTOS", image: "brazil.png", category: "SINGLE ORIGIN", description: "A mellow coffee with a nutty aroma, gentle sweetness and smooth body.", weight: "250g", roast: "Medium Roast", taste: "Almond, Milk Chocolate", brew: "French Press", origin: "Brazil", price: "$25.00" },
+    guatemala: { name: "GUATEMALA ANTIGUA", image: "guatamala.png", category: "SINGLE ORIGIN", description: "A rich and balanced coffee with cocoa flavours and a gentle spicy finish.", weight: "250g", roast: "Medium Roast", taste: "Cocoa, Spice", brew: "Pour Over", origin: "Guatemala", price: "$29.00" },
+    kenya: { name: "KENYA AA", image: "kenya.png", category: "SINGLE ORIGIN", description: "A bright and lively coffee with juicy fruit flavours and refreshing acidity.", weight: "250g", roast: "Light Roast", taste: "Blackcurrant, Citrus", brew: "Pour Over", origin: "Kenya", price: "$23.00" },
+    costa_rica: { name: "COSTA RICA TARRAZÚ", image: "costa_rica.png", category: "SINGLE ORIGIN", description: "A clean and bright coffee with citrus character and honey sweetness.", weight: "250g", roast: "Medium Roast", taste: "Orange, Honey", brew: "Pour Over", origin: "Costa Rica", price: "$28.00" }
+};
 
-    closeSubscription.onclick = function() {
-        subscriptionPopup.style.display = "none";
-    };
+const coffeeKey = new URLSearchParams(window.location.search).get("coffee");
+const coffee = coffeeData[coffeeKey];
 
-}
+if (coffee) {
+    const fields = ["detailName", "detailImage", "detailCategory", "detailDescription", "detailWeight", "detailRoast", "detailTaste", "detailBrew", "detailOrigin", "detailPrice"];
+    const values = [coffee.name, coffee.image, coffee.category, coffee.description, coffee.weight, coffee.roast, coffee.taste, coffee.brew, coffee.origin, coffee.price];
 
-if (subscriptionPopup) {
+    fields.forEach((id, index) => {
+        const element = document.getElementById(id);
+        if (!element) return;
 
-    subscriptionPopup.onclick = function(event) {
-
-        if (event.target === subscriptionPopup) {
-            subscriptionPopup.style.display = "none";
+        if (id === "detailImage") {
+            element.src = "../image/" + values[index];
+            element.alt = coffee.name;
+        } else {
+            element.textContent = values[index];
         }
+    });
 
-    };
-
+    const originRow = document.getElementById("originRow");
+    if (originRow && coffee.origin === "-") originRow.style.display = "none";
 }
 
-if (subscriptionForm) {
+const detailCart = document.querySelector(".detail_cart");
+if (detailCart && coffee) detailCart.onclick = () => addCart(coffee.name, coffee.price);
 
-    subscriptionForm.onsubmit = function(event) {
+document.addEventListener("click", event => {
+    const button = event.target.closest(".wishlist_btn");
+    if (!button) return;
 
-        event.preventDefault();
+    event.preventDefault();
 
-        let name = document.getElementById("subName").value;
-        let email = document.getElementById("subEmail").value;
-        let plan = document.getElementById("subPlan").value;
+    const card = button.closest(".coffee_blends_box, .coffee_card");
+    if (!card) return;
 
-        let subject = "Bean Boutique Subscription";
-        let body =
-            "Name: " + name +
-            "\nEmail: " + email +
-            "\nSubscription: " + plan;
+    const name = card.querySelector(".product_name");
+    const price = card.querySelector(".price");
+    const image = card.querySelector("img");
 
-        window.location.href =
-            "mailto:beanboutique@gmail.com?subject=" +
-            encodeURIComponent(subject) +
-            "&body=" +
-            encodeURIComponent(body);
+    if (!name || !price || !image) return;
 
-    };
+    const productName = name.textContent.trim();
 
+    if (wishlist.some(item => item.name === productName)) {
+        notify(productName + " is already in your wishlist!");
+        return;
+    }
+
+    wishlist.push({ name: productName, image: image.src, price: price.textContent.trim() });
+    saveWishlist();
+
+    const icon = button.querySelector("i");
+    if (icon) icon.className = "fa-solid fa-star";
+
+    notify(productName + " added to wishlist!");
+});
+
+
+const wishlistItems = document.getElementById("wishlistItems");
+
+if (wishlistItems) {
+    if (!wishlist.length) {
+        wishlistItems.innerHTML = "<p class='empty_wishlist'>Your wishlist is empty!</p>";
+    } else {
+        wishlistItems.innerHTML = wishlist.map(product =>
+            "<div class='coffee_blends_box wishlist_card'><div class='coffee_blend'><img src='" +
+            product.image + "' alt='" + product.name + "'></div><div class='blend_info'><h2 class='product_name'>" +
+            product.name + "</h2><p class='price'>" + product.price +
+            "</p><button class='cart_btn wishlist_cart' type='button'>ADD TO CART</button>" +
+            "<button class='remove_wishlist' type='button'><i class='fa-solid fa-trash'></i> REMOVE</button></div></div>"
+        ).join("");
+
+        wishlistItems.querySelectorAll(".remove_wishlist").forEach((button, index) => {
+            button.onclick = () => {
+                wishlist.splice(index, 1);
+                saveWishlist();
+                location.reload();
+            };
+        });
+    }
 }
-const coffeeSwiper = document.querySelector(".coffeeSwiper");
 
-if (coffeeSwiper && typeof Swiper !== "undefined") {
 
+const subscribeBtn = document.getElementById("subscribeBtn");
+const subscriptionPopup = document.getElementById("subscriptionPopup");
+const closeSubscription = document.getElementById("closeSubscription");
+const subscriptionForm = document.getElementById("subscriptionForm");
+
+if (subscribeBtn && subscriptionPopup) {
+    subscribeBtn.onclick = () => subscriptionPopup.style.display = "flex";
+}
+
+if (closeSubscription && subscriptionPopup) {
+    closeSubscription.onclick = () => subscriptionPopup.style.display = "none";
+}
+
+if (subscriptionPopup) subscriptionPopup.onclick = event => {
+    if (event.target === subscriptionPopup) subscriptionPopup.style.display = "none";
+};
+
+if (subscriptionForm) subscriptionForm.onsubmit = event => {
+    event.preventDefault();
+
+    const body = "Name: " + document.getElementById("subName").value +
+        "\nEmail: " + document.getElementById("subEmail").value +
+        "\nSubscription: " + document.getElementById("subPlan").value;
+
+    window.location.href = "mailto:beanboutique@gmail.com?subject=" +
+        encodeURIComponent("Bean Boutique Subscription") + "&body=" + encodeURIComponent(body);
+};
+
+if (document.querySelector(".coffeeSwiper") && typeof Swiper !== "undefined") {
     new Swiper(".coffeeSwiper", {
         slidesPerView: 3,
         spaceBetween: 25,
         loop: false,
-
         navigation: {
             nextEl: ".coffeeSwiper .swiper-button-next",
             prevEl: ".coffeeSwiper .swiper-button-prev"
         },
-
         breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-            481: {
-                slidesPerView: 2,
-                spaceBetween: 25
-            },
-            769: {
-                slidesPerView: 3,
-                spaceBetween: 25
-            }
+            0: { slidesPerView: 1, spaceBetween: 20 },
+            481: { slidesPerView: 2, spaceBetween: 25 },
+            769: { slidesPerView: 3, spaceBetween: 25 }
         }
     });
+}
 
-}
-if (typeof AOS !== "undefined") {
-    AOS.init();
-}
+if (typeof AOS !== "undefined") AOS.init();

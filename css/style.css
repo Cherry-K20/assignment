@@ -505,32 +505,49 @@ flex-shrink: 0;
 .coffeeSwiper {
     width: 90%;
     margin: 45px auto 0;
-    padding: 10px 50px 50px;
-    overflow: hidden;
+    padding: 10px 45px 50px;
 }
 
 .coffeeSwiper .swiper-slide {
     height: auto;
 }
+
+.coffeeSwiper .coffee_card {
+    height: 100%;
+}
+
+.coffeeSwiper .coffee_blend {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: rgb(239, 218, 218);
+}
+
+.coffeeSwiper .coffee_blend img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .coffeeSwiper .swiper-button-prev,
 .coffeeSwiper .swiper-button-next {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border: 1px solid rgb(205, 145, 155);
     border-radius: 50%;
-    background-color: rgb(255, 251, 247);
+    background: rgb(255, 251, 247);
     color: rgb(62, 48, 46);
 }
 
 .coffeeSwiper .swiper-button-prev::after,
 .coffeeSwiper .swiper-button-next::after {
-    font-size: 10px;
-    font-weight: 200;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .coffeeSwiper .swiper-button-prev:hover,
 .coffeeSwiper .swiper-button-next:hover {
-    background-color: rgb(62, 48, 46);
+    background: rgb(62, 48, 46);
     color: white;
 }
 
