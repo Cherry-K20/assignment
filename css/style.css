@@ -1,8 +1,23 @@
+:root {
+    --bg-color: rgb(255, 247, 240);
+    --header-color: rgb(255, 251, 247);
+    --dark-brown: rgb(62, 48, 46);
+    --brown: rgb(105, 70, 64);
+    --pink: rgb(180, 116, 128);
+    --light-pink: rgb(205, 145, 155);
+    --pale-pink: rgb(239, 218, 218);
+    --footer-color: rgb(238, 215, 218);
+    --icon-color: rgb(96, 71, 68);
+    --white: white;
+    --black: black;
+    --baby-pink: rgb(255, 247, 240);
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -10,8 +25,8 @@ html {
 
 body {
     font-family: "Libre Franklin", sans-serif;
-    background: rgb(255, 247, 240);
-    color: rgb(62, 48, 46);
+    background: var(--bg-color);
+    color: var(--dark-brown);
 }
 
 img {
@@ -27,8 +42,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgb(255, 251, 247);
-    border-bottom: 1px solid rgb(239, 218, 218);
+    background: var(--header-color);
+    border-bottom: 1px solid var(--pale-pink);
 }
 
 .head_container {
@@ -46,7 +61,7 @@ header {
     gap: 10px;
 }
 .logo a:hover{
-    color: rgb(180, 116, 128);
+    color: var(--pink);
 }
 
 .logo img {
@@ -56,7 +71,7 @@ header {
 .logo span {
     font-size: 19px;
     font-weight: 700;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
 }
 
 .nav_list ul {
@@ -73,14 +88,14 @@ header {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     transition: 0.3s;
 }
 
 .nav_list li a:hover,
 .nav_list li a.current {
-    color: rgb(180, 116, 128);
-    border-bottom-color: rgb(105, 70, 64);
+    color: var(--pink);
+    border-bottom-color: var(--brown);
 }
 
 .btn_container {
@@ -91,21 +106,21 @@ header {
 
 .star,
 .cart {
-    color: rgb(96, 71, 68);
+    color: var(--icon-color);
     font-size: 18px;
     transition: 0.3s;
 }
 
 .star:hover,
 .cart:hover {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
 }
 
 .menu_btn {
     display: none;
     background: none;
     border: none;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 24px;
     cursor: pointer;
 }
@@ -120,7 +135,7 @@ header {
     position: relative;
     height: 680px;
     overflow: hidden;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
 }
 
 .banner > img {
@@ -143,7 +158,7 @@ header {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: rgb(239, 218, 218);
+    color: var(--pale-pink);
 }
 .banner_text h1 {
     margin-bottom: 22px;
@@ -153,7 +168,7 @@ header {
 }
 
 .banner_text h1 em {
-    color: rgb(205, 145, 155);
+    color: var(--light-pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
@@ -162,7 +177,7 @@ header {
     margin-bottom: 30px;
     font-size: 15px;
     line-height: 1.8;
-    color: rgb(255, 247, 240);
+    color: var(--bg-color);
 }
 
 .banner_text > a,.description > a,.cta_content > a {
@@ -170,19 +185,19 @@ header {
     align-items: center;
     gap: 12px;
     padding: 13px 20px;
-    background: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background: var(--header-color);
+    color: var(--dark-brown);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1px;
     transition: 0.3s;
 }
 .cta_content > a {
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
 }
 .banner_text > a:hover,.description > a:hover,.cta_content > a:hover {
-    background: rgb(180, 116, 128);
+    background: var(--pink);
     color: white;
 }
 .banner_side_text {
@@ -193,7 +208,7 @@ header {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: rgb(239, 218, 218);
+    color: var(--pale-pink);
 }
 .home_intro {
     width: 800px;
@@ -207,7 +222,7 @@ header {
     justify-content: center;
     gap: 15px;
     margin-bottom: 25px;
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -215,7 +230,7 @@ header {
 .intro_label span {
     width: 35px;
     height: 1px;
-    background: rgb(205, 145, 155);
+    background: var(--light-pink);
 }
 
 .home_intro h2 {
@@ -225,19 +240,19 @@ header {
 }
 
 .home_intro h2 em {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
 
 .home_intro p {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 15px;
     line-height: 1.9;
 }
 .sec_2 {
     padding: 100px 2.5%;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
 }
 
@@ -253,7 +268,7 @@ header {
 .small_label {
     display: block;
     margin-bottom: 15px;
-    color: rgb(205, 145, 155);
+    color: var(--light-pink);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -265,13 +280,13 @@ header {
 }
 
 .section_heading h2 em {
-    color: rgb(205, 145, 155);
+    color: var(--light-pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
 .section_heading p {
     width: 330px;
-    color: rgb(239, 218, 218);
+    color: var(--pale-pink);
     font-size: 14px;
     line-height: 1.8;
 }
@@ -283,8 +298,8 @@ header {
     gap: 20px;
 }
 .feature_card {
-    background: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background: var(--header-color);
+    color: var(--dark-brown);
 }
 .product_card {
     position: relative;
@@ -341,24 +356,24 @@ header {
 .feature_content p {
   height: 65px;
     margin-bottom: 20px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 13px;
     line-height: 1.7;
 }
 
 .feature_content a {
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
 .feature_content a:hover {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
 }
 .sec_3 {
     padding: 110px 2.5%;
-    background: rgb(255, 247, 240);
+    background: var(--bg-color);
 }
 
 .best_text {
@@ -372,13 +387,13 @@ header {
 }
 
 .best_text h2 em {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
 
 .best_text p {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 14px;
 }
 
@@ -386,15 +401,15 @@ header {
 
 .coffee_card {
 flex-shrink: 0;
-    background: rgb(255, 251, 247);
-    border: 1px solid rgb(239, 218, 218);
+    background: var(--header-color);
+    border: 1px solid var(--pale-pink);
 }
 
 .coffee_pic {
     position: relative;
     height: 260px;
     overflow: hidden;
-    background: rgb(239, 218, 218);
+    background: var(--bg-color);
 }
 
 .coffee_pic img {
@@ -409,7 +424,7 @@ flex-shrink: 0;
     left: 15px;
     z-index: 2;
     padding: 7px 10px;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
     font-size: 8px;
     font-weight: 700;
@@ -427,13 +442,13 @@ flex-shrink: 0;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background: var(--header-color);
+    color: var(--dark-brown);
     transition: 0.3s;
 }
 
 .card_star:hover {
-    background: rgb(180, 116, 128);
+    background: var(--pink);
     color: white;
 }
 
@@ -444,7 +459,7 @@ flex-shrink: 0;
 .product_origin {
     display: block;
     margin-bottom: 7px;
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -453,7 +468,7 @@ flex-shrink: 0;
 .product_name {
     display: block;
     margin-bottom: 10px;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 15px;
     font-weight: 700;
 }
@@ -461,7 +476,7 @@ flex-shrink: 0;
 .add_to_cart p {
    height: 45px;
     margin-bottom: 18px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 12px;
     line-height: 1.6;
 }
@@ -474,7 +489,7 @@ flex-shrink: 0;
 }
 
 .price {
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 17px;
     font-weight: 700;
 }
@@ -482,7 +497,7 @@ flex-shrink: 0;
 .cart_btn {
     padding: 10px 13px;
     border: none;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
     font-size: 9px;
     font-weight: 700;
@@ -492,13 +507,13 @@ flex-shrink: 0;
 }
 
 .cart_btn:hover {
-    background: rgb(180, 116, 128);
+    background: var(--pink);
 }
 
 
 .sec_4 {
     padding: 110px 5%;
-    background: rgb(239, 218, 218);
+    background: var(--bg-color);
 }
 .coffeeSwiper {
     width: 90%;
@@ -518,7 +533,7 @@ flex-shrink: 0;
     position: relative;
     height: 170px;
     overflow: hidden;
-    background: rgb(239, 218, 218);
+    background: var(--pale-pink);
 }
 
 .coffeeSwiper .coffee_blend img {
@@ -531,10 +546,10 @@ flex-shrink: 0;
 .coffeeSwiper .swiper-button-next {
     width: 38px;
     height: 38px;
-    border: 1px solid rgb(205, 145, 155);
+    border: 1px solid var(--pale-pink);
     border-radius: 50%;
-    background: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background: var(--header-color);
+    color: var(--dark-brown);
 }
 
 .coffeeSwiper .swiper-button-prev::after,
@@ -545,7 +560,7 @@ flex-shrink: 0;
 
 .coffeeSwiper .swiper-button-prev:hover,
 .coffeeSwiper .swiper-button-next:hover {
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
 }
 
@@ -573,7 +588,7 @@ flex-shrink: 0;
     bottom: 20px;
     left: 20px;
     padding: 9px 12px;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
     font-size: 9px;
     font-weight: 700;
@@ -587,7 +602,7 @@ flex-shrink: 0;
 }
 
 .description h2 em {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
@@ -595,13 +610,13 @@ flex-shrink: 0;
 .description p {
    width: 480px;
     margin-bottom: 30px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 14px;
     line-height: 1.9;
 }
 
 .description > a {
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
 }
 
@@ -621,18 +636,18 @@ flex-shrink: 0;
 .cta_content h2 {
     margin-bottom: 20px;
     font-size: 52px;
-    color:rgb(96, 71, 68);
+    color:var(--dark-brown);
 }
 
 .cta_content h2 em {
-    color: rgb(205, 145, 155);
+    color: var(--pink);
     font-family: Georgia, serif;
     font-weight: 400;
 }
 
 .cta_content p {
     margin-bottom: 30px;
-    color:rgb(96, 71, 68);
+    color: var(--dark-brown);
     font-size: 14px;
     line-height: 1.8;
 }
@@ -652,8 +667,8 @@ flex-shrink: 0;
     width: 430px;
     padding: 45px 40px;
     border-radius: 24px;
-    background: rgb(255, 251, 247);
-    border: 1px solid rgb(239, 218, 218);
+    background: var(--header-color);
+    border: 1px solid var(--pale-pink);
     box-shadow: 0 25px 60px rgba(62, 48, 46, 0.3);
     text-align: center;
 }
@@ -665,14 +680,14 @@ flex-shrink: 0;
     height: 35px;
     border: none;
     border-radius: 50%;
-    background: rgb(239, 218, 218);
-    color: rgb(62, 48, 46);
+    background: var(--pale-pink);
+    color: var(--dark-brown);
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
 }
 #btn:hover {
-    background: rgb(180, 116, 128);
+    background: var(--pink);
     color: white;
 }
 #promo_logo {
@@ -681,17 +696,17 @@ flex-shrink: 0;
 }
 #promotion_card h2 {
     margin-bottom: 12px;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 25px;
 }
 #promotion_card p {
     margin-bottom: 25px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 14px;
     line-height: 1.6;
 }
 #promotion_card strong {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
 }
 #promotion_form {
     display: flex;
@@ -700,28 +715,28 @@ flex-shrink: 0;
     text-align: left;
 }
 #promotion_form label {
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 12px;
     font-weight: 700;
 }
 #email {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid rgb(205, 145, 155);
+    border: 1px solid var(--pale-pink);
     border-radius: 8px;
     outline: none;
     background: white;
     color: rgb(62, 48, 46);
 }
 #email:focus {
-    border-color: rgb(105, 70, 64);
+    border-color: var(--pink);
 }
 #discount_btn {
     margin-top: 8px;
     padding: 13px;
     border: none;
     border-radius: 25px;
-    background: rgb(62, 48, 46);
+    background: var(--dark-brown);
     color: white;
     font-size: 12px;
     font-weight: 700;
@@ -730,7 +745,7 @@ flex-shrink: 0;
     transition: 0.3s;
 }
 #discount_btn:hover {
-    background: rgb(180, 116, 128);
+    background: var(--pink);
     transform: translateY(-2px);
 }
 /* coffee search bar */
@@ -745,10 +760,10 @@ flex-shrink: 0;
 .product_filter select {
     height: 42px;
     padding: 8px 15px;
-    border: 1px solid rgb(205, 145, 155);
+    border: 1px solid var(--pale-pink);
     border-radius: 4px;
-    background-color: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background-color: var(--header-color);
+    color: var(--dark-brown);
     font-size: 14px;
 }
 .product_filter input {
@@ -761,11 +776,11 @@ flex-shrink: 0;
 .product_filter input:focus,
 .product_filter select:focus {
     outline: none;
-    border-color: rgb(180, 116, 128);
-    box-shadow: 0 0 0 3px rgb(239, 218, 218);
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px var(--pale-pink);
 }
 .product_filter input::placeholder {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
 }
 .search_box {
     position: relative;
@@ -776,26 +791,26 @@ flex-shrink: 0;
     top: 50%;
     left: 15px;
     z-index: 2;
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     transform: translateY(-50%);
 }
 .search_box input {
     width: 100%;
     height: 42px;
     padding: 8px 15px 8px 40px;
-    border: 1px solid rgb(205, 145, 155);
+    border: 1px solid var(--pale-pink);
     border-radius: 4px;
-    background-color: rgb(255, 251, 247);
-    color: rgb(62, 48, 46);
+    background-color: var(--header-color);
+    color: var(--dark-brown);
     font-size: 14px;
 }
 .search_box input:focus {
     outline: none;
-    border-color: rgb(180, 116, 128);
-    box-shadow: 0 0 0 3px rgb(239, 218, 218);
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px var(--pale-pink);
 }
 .search_box input::placeholder {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     animation: searchFade 2.5s infinite;
 }
 /* coffee page */
@@ -810,43 +825,43 @@ flex-shrink: 0;
     text-align: center;
 }
 .coffee_intro > span {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 3px;
 }
 .coffee_intro h1 {
     margin: 15px 0;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 45px;
     line-height: 1.1;
     letter-spacing: -1px;
 }
 .coffee_intro h1 em {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-style: normal;
 }
 .coffee_intro p {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 14px;
     line-height: 1.8;
 }
 .coffee_collection_label {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgb(239, 218, 218);
+    border-bottom: 1px solid var(--pale-pink);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .coffee_collection_label span {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
 }
 .coffee_collection_label span:first-child {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
 }
 .product_box {
     display: grid;
@@ -859,8 +874,8 @@ flex-shrink: 0;
     padding: 10px;
     overflow: hidden;
     border-radius: 24px;
-    background-color: rgb(255, 251, 247);
-    border: 1px solid rgb(239, 218, 218);
+    background-color: var(--header-color);
+    border: 1px solid var(--pale-pink);
     box-shadow: 0 7px 18px rgba(62, 48, 46, 0.08);
     transition: 0.3s ease;
 }
@@ -871,7 +886,7 @@ flex-shrink: 0;
 .coffee_blend {
     position: relative;
     overflow: hidden;
-    background-color: rgb(239, 218, 218);
+    background-color: var(--pale-pink);
 }
 .coffee_blend img {
     width: 100%;
@@ -892,15 +907,15 @@ flex-shrink: 0;
     height: 35px;
     border: none;
     border-radius: 50%;
-    background-color: rgb(255, 251, 247);
-    color: rgb(105, 70, 64);
+    background-color: var(--header-color);
+    color: var(--dark-brown);
     font-size: 17px;
     cursor: pointer;
     box-shadow: 0 3px 8px rgba(62, 48, 46, 0.15);
     transition: 0.25s ease;
 }
 .wishlist_btn:hover {
-    background-color: rgb(180, 116, 128);
+    background-color: var(--pink);
     color: white;
     transform: scale(1.08);
 }
@@ -909,7 +924,7 @@ flex-shrink: 0;
 }
 
 .product_name {
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -929,16 +944,16 @@ flex-shrink: 0;
 }
 
 .tag1 {
-    background-color: rgb(239, 218, 218);
-    color: rgb(105, 70, 64);
+    background-color: var(--pale-pink);
+    color: var(--dark-brown);
 }
 .tag2 {
-    background-color: rgb(205, 145, 155);
-    color: rgb(62, 48, 46);
+    background-color: var(--pink);
+    color: var(--dark-brown);
 }
 .brief_info {
     margin-top: 8px;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 13px;
     line-height: 1.5;
 }
@@ -947,12 +962,12 @@ flex-shrink: 0;
 }
 .details p {
     margin: 4px 0;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 12px;
 }
 .weight {
     margin-top: 4px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 13px;
 }
 .buy {
@@ -963,7 +978,7 @@ flex-shrink: 0;
     margin-top: 10px;
 }
 .price {
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 15px;
     font-weight: 700;
 }
@@ -971,9 +986,9 @@ flex-shrink: 0;
     width: 120px;
     height: 34px;
     padding:8px 10px;
-    border: 1px solid rgb(105, 70, 64);
+    border: 1px solid var(--dark-brown);
     border-radius: 3px;
-    background-color: rgb(105, 70, 64);
+    background-color: var(--dark-brown);
     color: white;
     font-size: 12px;
     font-weight: 600;
@@ -981,20 +996,20 @@ flex-shrink: 0;
     transition: 0.25s ease;
 }
 .cart_btn:hover {
-    background-color: rgb(180, 116, 128);
-    border-color: rgb(180, 116, 128);
+    background-color: var(--pink);
+    border-color: var(--pink);
     transform: translateY(-2px);
 }
 .cart_btn:active {
-    background-color: rgb(205, 145, 155);
+    background-color: var(--pink);
 }
 .detail_btn {
     display: block;
     margin-top: 12px;
     padding: 8px;
-    border: 1px solid rgb(180, 116, 128);
+    border: 1px solid var(--pink);
     border-radius: 20px;
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     text-align: center;
     text-decoration: none;
     font-size: 12px;
@@ -1002,7 +1017,7 @@ flex-shrink: 0;
     transition: 0.25s ease;
 }
 .detail_btn:hover {
-    background-color: rgb(180, 116, 128);
+    background-color: var(--pink);
     color: white;
 }
 .coffee_collection_banner {
@@ -1013,10 +1028,10 @@ flex-shrink: 0;
     justify-content: space-between;
     gap: 30px;
     border-radius: 25px;
-    background-color: rgb(62, 48, 46);
+    background-color: var(--dark-brown);
 }
 .coffee_collection_banner span {
-    color: rgb(205, 145, 155);
+    color: var(--pink);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2.5px;
@@ -1027,18 +1042,18 @@ flex-shrink: 0;
     font-size: 28px;
 }
 .coffee_collection_banner h2 em {
-    color: rgb(205, 145, 155);
+    color: var(--pink);
     font-style: normal;
 }
 .coffee_collection_banner p {
     margin: 0;
-    color: rgb(239, 218, 218);
+    color: var(--light-pink);
     font-size: 12px;
     line-height: 1.7;
 }
 .coffee_collection_banner a {
     padding: 13px 20px;
-    border: 1px solid rgb(205, 145, 155);
+    border: 1px solid var(--pink);
     border-radius: 30px;
     color: white;
     text-decoration: none;
@@ -1048,8 +1063,8 @@ flex-shrink: 0;
      transition: 0.3s;
 }
 .coffee_collection_banner a:hover {
-    background-color: rgb(205, 145, 155);
-    color: rgb(62, 48, 46);
+    background-color: var(--pink);
+    color: var(--dark-brown);
 }
 .coffee_collection_banner a i {
     margin-left: 8px;
@@ -1082,24 +1097,24 @@ flex-shrink: 0;
 }
 .equipment_intro h1 {
     margin: 15px 0;
-    color: rgb(62, 48, 46);
+    color: var(--dark-brown);
     font-size: 45px;
     line-height: 1.1;
     letter-spacing: -1px;
 }
 .equipment_intro h1 em {
-    color: rgb(180, 116, 128);
+    color: var(--pink);
     font-style: normal;
 }
 .equipment_intro p {
-    color: rgb(105, 70, 64);
+    color: var(--dark-brown);
     font-size: 14px;
     line-height: 1.8;
 }
 .equipment_label {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgb(239, 218, 218);
+    border-bottom: 1px solid var(--light-pink);
     display: flex;
     justify-content: space-between;
     align-items: center;
